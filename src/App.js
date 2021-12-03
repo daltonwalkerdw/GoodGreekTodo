@@ -6,6 +6,7 @@ import Todos from "./Components/Todos";
 function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
+  
   useEffect(() => {
     if (localStorage.getItem("todos")) {
       setTodos(JSON.parse(localStorage.getItem("todos")));

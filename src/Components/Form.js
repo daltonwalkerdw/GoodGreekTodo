@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 
 const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
   const saveTodo = (newTodos) => {
@@ -6,27 +5,24 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
   };
 
   const addTodo = () => {
-
-    
-      for(let i = 0; i < todos.length; i++){ // checks to see if todo already exist
-        if(todos[i].todo == newTodo){
-          alert("todo already exist")
-          setNewTodo("")
-          return
-        }
-      }
-      if(newTodo == ""){
-        alert("Please Enter A Todo")
-      }
-      if (newTodo.trim()) {
-        let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
-        setTodos(newTodos);
+    for (let i = 0; i < todos.length; i++) {
+      // checks to see if todo already exist
+      if (todos[i].todo == newTodo) {
+        alert("todo already exist");
         setNewTodo("");
-        saveTodo(newTodos);
-  
+        return;
       }
-      
-   
+    }
+    // prevents a blank todo to be entered
+    if (newTodo == "") {
+      alert("Please Enter A Todo");
+    }
+    if (newTodo.trim()) {
+      let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
+      setTodos(newTodos);
+      setNewTodo("");
+      saveTodo(newTodos);
+    }
   };
 
   return (

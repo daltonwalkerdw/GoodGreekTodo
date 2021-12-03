@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  height: 100%;
-  
 }
 
 .App-logo {
@@ -30,34 +28,35 @@
   color: #61dafb;
 }
 
-.todos{
+.todos {
   display: flex;
   width: 50%;
   margin: 20px;
   align-content: flex-end;
-  
 }
 .centered {
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -100px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  height: 100%;
 }
-p{
-  margin-right: 10px
+p {
+  margin-right: 10px;
 }
-h1{
+h1 {
   text-align: center;
   margin: 10px;
 }
-.item{
-  margin: 10px
+.item {
+  margin: 10px;
 }
-.form{
+.form {
   text-align: center;
 }
-button{
+button {
   border-radius: 5px;
   background-color: lightgray;
+  border: none;
 }
