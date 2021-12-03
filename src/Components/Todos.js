@@ -10,13 +10,15 @@ const Todos = ({ todos, setTodos }) => {
 
   const handleMove = (id, direction) => {
     const position = todos.findIndex((i) => i.id === id);
-    if(position == 0 && direction == up){
-        return
-    } else if(position == todos.length - 1 && direction == down) {
-        return
+    
+    if (position === 0 && direction === up) {
+      return;
+    }
+    if (position === todos.length - 1 && direction === down) {
+      return;
     }
     const movedItem = todos[position];
-    let newTodos = todos.filter((todo) => todo.id !== id);
+    const newTodos = todos.filter((todo) => todo.id !== id);
     newTodos.splice(position + direction, 0, movedItem);
     setTodos(newTodos);
 
@@ -34,11 +36,11 @@ const Todos = ({ todos, setTodos }) => {
       {todos.map((todo) => {
         return (
           <div className="todos" key={todo.id}>
-            <p>•</p>
-            <h2>{todo.todo}</h2>
-            <button onClick={() => handleMove(todo.id, up)}>▲</button>
-            <button onClick={() => handleMove(todo.id, down)}>▼</button>
-            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <h2 className="item">•</h2>
+            <h2 className="item">{todo.todo}</h2>
+            <button className="item" onClick={() => handleMove(todo.id, up)}>▲</button>
+            <button className="item" onClick={() => handleMove(todo.id, down)}>▼</button>
+            <button className="item" onClick={() => deleteTodo(todo.id)}>Delete</button>
           </div>
         );
       })}

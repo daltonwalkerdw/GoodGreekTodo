@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="centered">
       <h1>List App</h1>
       <Form
         newTodo={newTodo}

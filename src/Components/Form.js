@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
   const saveTodo = (newTodos) => {
@@ -6,16 +6,31 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
   };
 
   const addTodo = () => {
-    if (newTodo.trim()) {
-      let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
-      setTodos(newTodos);
-      setNewTodo("");
-      saveTodo(newTodos);
-    }
+
+    
+      for(let i = 0; i < todos.length; i++){ // checks to see if todo already exist
+        if(todos[i].todo == newTodo){
+          alert("todo already exist")
+          setNewTodo("")
+          return
+        }
+      }
+      if(newTodo == ""){
+        alert("Please Enter A Todo")
+      }
+      if (newTodo.trim()) {
+        let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
+        setTodos(newTodos);
+        setNewTodo("");
+        saveTodo(newTodos);
+  
+      }
+      
+   
   };
 
   return (
-    <div>
+    <div className="form">
       <input
         type="text"
         placeholder="Add Todo"
