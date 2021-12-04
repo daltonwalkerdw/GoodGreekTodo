@@ -33,23 +33,28 @@ const Todos = ({ todos, setTodos }) => {
   };
   return (
     <div>
-      {todos.map((todo) => {
-        return (
-          <div className="todos" key={todo.id}>
-            <h2 className="item">•</h2>
-            <h2 className="item">{todo.todo}</h2>
-            <button className="item" onClick={() => handleMove(todo.id, up)}>
-              ▲
-            </button>
-            <button className="item" onClick={() => handleMove(todo.id, down)}>
-              ▼
-            </button>
-            <button className="item" onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </button>
-          </div>
-        );
-      })}
+      <ul>
+        {todos.map((todo) => {
+          return (
+            <li className="todos" key={todo.id}>
+              <h2 className="item">•</h2>
+              <h2 className="item">{todo.todo}</h2>
+              <button className="item" onClick={() => handleMove(todo.id, up)}>
+                ▲
+              </button>
+              <button
+                className="item"
+                onClick={() => handleMove(todo.id, down)}
+              >
+                ▼
+              </button>
+              <button className="item" onClick={() => deleteTodo(todo.id)}>
+                Delete
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
