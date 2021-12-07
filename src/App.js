@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Form from "./Components/Form";
+import Header from "./Components/Header";
 import Todos from "./Components/Todos";
 
 function App() {
@@ -14,15 +15,23 @@ function App() {
   }, []);
 
   return (
-    <div className="centered">
-      <h1>List App</h1>
-      <Form
-        newTodo={newTodo}
-        setNewTodo={setNewTodo}
-        todos={todos}
-        setTodos={setTodos}
-      />
-      <Todos todos={todos} setTodos={setTodos} />
+    <div className="background">
+      <div className="centered">
+        <Header />
+        
+        <div className="formContainer">
+
+        <Form
+          newTodo={newTodo}
+          setNewTodo={setNewTodo}
+          todos={todos}
+          setTodos={setTodos}
+        />
+        <Todos todos={todos} setTodos={setTodos} />
+        
+        </div>
+      </div>
+      <p>Good Greek Moving & Storage All Rights Reserved</p>
     </div>
   );
 }

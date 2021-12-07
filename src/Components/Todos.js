@@ -32,12 +32,12 @@ const Todos = ({ todos, setTodos }) => {
     saveTodo(newTodos);
   };
   return (
-    <div>
+    <div className="todoList">
+      <h1>TASK LIST</h1>
       <ul>
         {todos.map((todo) => {
           return (
             <li className="todos" key={todo.id}>
-              <h2 className="item">•</h2>
               <h2 className="item">{todo.todo}</h2>
               <button className="item" onClick={() => handleMove(todo.id, up)}>
                 ▲

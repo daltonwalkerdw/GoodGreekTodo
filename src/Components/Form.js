@@ -26,6 +26,7 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
 
   return (
     <div className="form">
+      <h1>LIST APP</h1>
       <form>
         <input
           type="text"
