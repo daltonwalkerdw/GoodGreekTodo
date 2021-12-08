@@ -3,13 +3,13 @@ import "./App.scss";
 import Form from "./Components/Form";
 import Header from "./Components/Header";
 import Todos from "./Components/Todos";
-import Logo from "./Images/GGLogo.png";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
 
   useEffect(() => {
+    // Grabs storage and sets it to state.
     if (localStorage.getItem("todos")) {
       setTodos(JSON.parse(localStorage.getItem("todos")));
     }
@@ -18,10 +18,7 @@ function App() {
   return (
     <div className="background">
       <div className="centered">
-        <header className="header">
-          <img src={Logo} alt="GoodGreekLogo" />
-        </header>
-
+        <Header />
         <div className="formContainer">
           <Form
             newTodo={newTodo}
@@ -33,7 +30,7 @@ function App() {
         </div>
       </div>
       <p className="copyRight">
-        COPYRIGHT GOOD GREEK MOVING & STORAGE. ALL RIGHT RESERVED.
+        COPYRIGHT GOOD GREEK MOVING & STORAGE. ALL RIGHTS RESERVED.
       </p>
     </div>
   );

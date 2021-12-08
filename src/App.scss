@@ -1,8 +1,3 @@
-$goodGreekBlue: rgb(20, 63, 144);
-$goodGreekGray: #f8f8f8;
-$goodGreekFont: "Roboto", sans-serif;
-$todoColor: rgb(8, 25, 57);
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -133,29 +128,24 @@ table {
   border-spacing: 0;
 }
 
-// end css reset
+// End css reset
+
+$goodGreekBlue: rgb(20, 63, 144);
+$goodGreekGray: #f8f8f8;
+$goodGreekFont: "Roboto", sans-serif;
+$todoColor: rgb(8, 25, 57);
+
+// End variables 
 
 * {
   font-family: $goodGreekFont;
 }
 
-h1 {
-  text-align: center;
-  margin: 10px;
-  font-family: $goodGreekFont;
-}
-.arrows {
-  color: $goodGreekBlue;
-  margin-right: 3%;
-}
-.delete {
-  color: red;
-}
+
 
 .background {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
   background-color: #f8f8f8;
   justify-content: center;
   align-items: center;
@@ -165,34 +155,27 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 80vw;
-    height: 80vh;
+    min-height: 80vh;
     align-items: center;
-    top: 20%;
-    left: 20%;
     background-color: white;
     border-radius: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    h1 {
+      text-align: center;
+      margin: 10px;
+      font-family: $goodGreekFont;
+    }
+    
     .todoList {
       background-color: rgba(20, 63, 144, 0.1);
-      padding: 0 0 10% 0;
-      overflow-y: scroll;
-      height: 20vh;
-      .todos {
-        display: flex;
-        justify-content: center;
-        font-size: 36px;
-        align-items: center;
-        margin-bottom: 2%;
-        button {
-          background-color: $goodGreekBlue;
-        }
-
-        .item {
-          margin: 10px;
-          border-radius: 50%;
-          font-size: 36px;
-          margin-right: 6%;
-          font-family: $goodGreekFont;
-        }
+      border-radius: 20px;
+      .arrows {
+        color: $goodGreekBlue;
+        margin-right: 3%;
+      }
+      .delete {
+        color: red;
       }
       h1 {
         font-size: 48px;
@@ -201,9 +184,25 @@ h1 {
         color: $goodGreekBlue;
         border-bottom: 1px solid rgb(20, 63, 144);
       }
+      .todos {
+        display: flex;
+        justify-content: center;
+        font-size: 36px;
+        align-items: center;
+        margin-bottom: 2%;
+        .item {
+          margin: 10px;
+          border-radius: 50%;
+          font-size: 36px;
+          margin-right: 6%;
+          font-family: $goodGreekFont;
+        }
+      }
     }
+
     .formContainer {
-      padding-top: 8%;
+      flex: 1;
+      margin-bottom: 5%;
       width: 80%;
       form {
         display: flex;
@@ -219,6 +218,7 @@ h1 {
           border-radius: 12px;
           font-size: 36px;
           font-family: $goodGreekFont;
+          padding: 0 10px;
         }
         button {
           background-color: $goodGreekBlue;
@@ -229,11 +229,13 @@ h1 {
         }
       }
     }
+
     button {
       border-radius: 5px;
       background-color: lightgray;
       border: none;
     }
+
     .form {
       text-align: center;
       h1 {
@@ -243,24 +245,29 @@ h1 {
         margin: 0;
       }
     }
-    .header {
+
+    header {
       width: 100%;
-      background-color: #143f90;
-      height: 128px;
+    }
+
+    .logoContainer {
+      background: linear-gradient(180deg, #143f90 50%, #fff 50%);
+      border-radius: 20px 20px 0 0;
       display: flex;
       justify-content: center;
-      border-radius: 20px 20px 0 0;
+      height: 240px;
       position: relative;
       img {
         position: absolute;
-        transform: translateY(54px);
+        top: 45px;
       }
     }
   }
 
   .copyRight {
     font-size: 16px;
-    color: rgb(8, 25, 57);
-    font-family: $goodGreekFont;
+    color: #081939;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 20px;
   }
 }

@@ -3,7 +3,8 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
-  const addTodo = () => {
+  const addTodo = (e) => {
+    e.preventDefault();
     for (let i = 0; i < todos.length; i++) {
       // checks to see if todo already exist
       if (todos[i].todo === newTodo) {
@@ -12,8 +13,8 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
         return;
       }
     }
-    // prevents a blank todo to be entered
     if (newTodo === "") {
+      // prevents a blank todo to be entered
       alert("Please Enter A Todo");
     }
     if (newTodo.trim()) {
