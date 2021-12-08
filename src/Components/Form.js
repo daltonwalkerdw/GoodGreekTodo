@@ -3,19 +3,23 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
-  const addTodo = (e) => {
-    e.preventDefault();
+  const isTodoBlank = () => {
+    // Prevents a blank todo from being created.
+    if (newTodo === "") {
+      alert("Please Enter A Todo");
+    }
+  };
+
+  const trimTodo = () => {
+    // Trims any blank space from the input string.
     for (let i = 0; i < todos.length; i++) {
-      // checks to see if todo already exist
+      // Checks if new todo exist, if true prevents anything from happening
       if (todos[i].todo === newTodo) {
         alert("todo already exist");
         setNewTodo("");
+        console.log(todos);
         return;
       }
-    }
-    if (newTodo === "") {
-      // prevents a blank todo to be entered
-      alert("Please Enter A Todo");
     }
     if (newTodo.trim()) {
       let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
@@ -23,6 +27,12 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
       setNewTodo("");
       saveTodo(newTodos);
     }
+  };
+
+  const addTodo = (e) => {
+    e.preventDefault();
+    isTodoBlank();
+    trimTodo();
   };
 
   return (
