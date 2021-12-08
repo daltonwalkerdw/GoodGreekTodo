@@ -266,6 +266,10 @@ $todoColor: rgb(8, 25, 57);
           top: 19%;
           width: 50vw;
         }
+        @media screen and (max-width: 400px) {
+          top: 31%;
+          width: 50vw;
+        }
       }
     }
   }
