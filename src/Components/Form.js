@@ -34,7 +34,7 @@ const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
           onChange={(e) => setNewTodo(e.target.value)}
           value={newTodo}
         />
-        <button onClick={addTodo}>Add Task</button>
+        <button onClick={addTodo}>create task</button>
       </form>
     </div>
   );

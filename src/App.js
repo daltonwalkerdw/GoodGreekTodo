@@ -3,6 +3,7 @@ import "./App.scss";
 import Form from "./Components/Form";
 import Header from "./Components/Header";
 import Todos from "./Components/Todos";
+import Logo from "./Images/GGLogo.png";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -17,21 +18,23 @@ function App() {
   return (
     <div className="background">
       <div className="centered">
-        <Header />
-        
-        <div className="formContainer">
+        <header className="header">
+          <img src={Logo} alt="GoodGreekLogo" />
+        </header>
 
-        <Form
-          newTodo={newTodo}
-          setNewTodo={setNewTodo}
-          todos={todos}
-          setTodos={setTodos}
-        />
-        <Todos todos={todos} setTodos={setTodos} />
-        
+        <div className="formContainer">
+          <Form
+            newTodo={newTodo}
+            setNewTodo={setNewTodo}
+            todos={todos}
+            setTodos={setTodos}
+          />
+          <Todos todos={todos} setTodos={setTodos} />
         </div>
       </div>
-      <p>Good Greek Moving & Storage All Rights Reserved</p>
+      <p className="copyRight">
+        COPYRIGHT GOOD GREEK MOVING & STORAGE. ALL RIGHT RESERVED.
+      </p>
     </div>
   );
 }

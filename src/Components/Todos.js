@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleArrowUp, faCircleArrowDown, faCircleXmark, } from '@fortawesome/free-solid-svg-icons'
+
 
 const Todos = ({ todos, setTodos }) => {
   let up = -1;
@@ -39,18 +42,9 @@ const Todos = ({ todos, setTodos }) => {
           return (
             <li className="todos" key={todo.id}>
               <h2 className="item">{todo.todo}</h2>
-              <button className="item" onClick={() => handleMove(todo.id, up)}>
-                ▲
-              </button>
-              <button
-                className="item"
-                onClick={() => handleMove(todo.id, down)}
-              >
-                ▼
-              </button>
-              <button className="item" onClick={() => deleteTodo(todo.id)}>
-                Delete
-              </button>
+                <FontAwesomeIcon className="arrows" onClick={() => handleMove(todo.id, down)} icon={faCircleArrowDown} />
+                <FontAwesomeIcon className="arrows" onClick={() => handleMove(todo.id, up)} icon={faCircleArrowUp} />
+                <FontAwesomeIcon className={"delete"} onClick={() => deleteTodo(todo.id)} icon={faCircleXmark} />  
             </li>
           );
         })}
