@@ -19,7 +19,7 @@ const Todos = ({ todos, setTodos }) => {
     const position = todos.findIndex((i) => i.id === id);
 
     if (position === 0 && direction === up) {
-      return; // If top element, do nothing
+      return // if top element, do nothing
     }
     if (position === todos.length - 1 && direction === down) {
       return; // If bottom element, do nothing

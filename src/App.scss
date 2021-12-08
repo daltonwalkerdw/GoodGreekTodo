@@ -131,42 +131,40 @@ table {
 // End css reset
 
 $goodGreekBlue: rgb(20, 63, 144);
-$goodGreekGray: #f8f8f8;
 $goodGreekFont: "Roboto", sans-serif;
+$goodGreekGray: #f8f8f8;
 $todoColor: rgb(8, 25, 57);
 
-// End variables 
+// End variables
 
 * {
   font-family: $goodGreekFont;
 }
 
-
-
 .background {
-  display: flex;
-  min-height: 100vh;
   background-color: #f8f8f8;
-  justify-content: center;
+  display: flex;
+  align-content: center;
   align-items: center;
   flex-direction: column;
-  align-content: center;
+  justify-content: center;
+  min-height: 100vh;
   .centered {
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    min-height: 80vh;
     align-items: center;
     background-color: white;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 40px;
     margin-top: 40px;
+    min-height: 80vh;
+    width: 80vw;
     h1 {
-      text-align: center;
-      margin: 10px;
       font-family: $goodGreekFont;
+      margin: 10px;
+      text-align: center;
     }
-    
+
     .todoList {
       background-color: rgba(20, 63, 144, 0.1);
       border-radius: 20px;
@@ -178,24 +176,24 @@ $todoColor: rgb(8, 25, 57);
         color: red;
       }
       h1 {
+        border-bottom: 1px solid rgb(20, 63, 144);
+        color: $goodGreekBlue;
         font-size: 48px;
         margin: 0 3% 2% 3%;
         padding: 4% 0 2% 0;
-        color: $goodGreekBlue;
-        border-bottom: 1px solid rgb(20, 63, 144);
       }
       .todos {
-        display: flex;
-        justify-content: center;
-        font-size: 36px;
         align-items: center;
+        display: flex;
+        font-size: 36px;
+        justify-content: center;
         margin-bottom: 2%;
         .item {
-          margin: 10px;
           border-radius: 50%;
-          font-size: 36px;
-          margin-right: 6%;
           font-family: $goodGreekFont;
+          font-size: 36px;
+          margin: 10px;
+          margin-right: 6%;
         }
       }
     }
@@ -206,42 +204,42 @@ $todoColor: rgb(8, 25, 57);
       width: 80%;
       form {
         display: flex;
-        width: 100%;
-        padding: 5% 0;
         justify-content: space-between;
+        padding: 5% 0;
+        width: 100%;
         input {
-          border: 1px solid #cccccc;
           background-color: $goodGreekGray;
-          width: 70%;
-          padding-right: 5%;
-          height: 7vh;
+          border: 1px solid #cccccc;
           border-radius: 12px;
-          font-size: 36px;
           font-family: $goodGreekFont;
+          font-size: 36px;
+          height: 7vh;
+          padding-right: 5%;
           padding: 0 10px;
+          width: 70%;
         }
         button {
           background-color: $goodGreekBlue;
-          color: white;
-          width: 20%;
-          font-size: 16px;
           border-radius: 12px;
+          color: white;
+          font-size: 16px;
+          width: 20%;
         }
       }
     }
 
     button {
-      border-radius: 5px;
       background-color: lightgray;
       border: none;
+      border-radius: 5px;
     }
 
     .form {
       text-align: center;
       h1 {
+        border-bottom: 1px solid #143f90;
         font-size: 60px;
         color: $goodGreekBlue;
-        border-bottom: 1px solid #143f90;
         margin: 0;
       }
     }
@@ -254,20 +252,31 @@ $todoColor: rgb(8, 25, 57);
       background: linear-gradient(180deg, #143f90 50%, #fff 50%);
       border-radius: 20px 20px 0 0;
       display: flex;
-      justify-content: center;
       height: 240px;
+      justify-content: center;
       position: relative;
+      @media screen and (max-width: 600px) {
+        height: 120px;
+        padding-bottom: 5%;
+      }
       img {
         position: absolute;
         top: 45px;
+        @media screen and (max-width: 600px) {
+          top: 19%;
+          width: 50vw;
+        }
       }
     }
   }
 
   .copyRight {
-    font-size: 16px;
     color: #081939;
     font-family: "Roboto", sans-serif;
+    font-size: 16px;
     margin-bottom: 20px;
+    @media screen and (max-width: 600px) {
+      width: 40vw;
+    }
   }
 }
