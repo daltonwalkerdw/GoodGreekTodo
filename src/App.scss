@@ -1,135 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-// End css reset
-
 $goodGreekBlue: rgb(20, 63, 144);
 $goodGreekFont: "Roboto", sans-serif;
 $goodGreekGray: #f8f8f8;
@@ -142,13 +10,14 @@ $todoColor: rgb(8, 25, 57);
 }
 
 .background {
-  background-color: #f8f8f8;
+  background-color: $goodGreekGray;
   display: flex;
   align-content: center;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+
   .centered {
     align-items: center;
     background-color: white;
@@ -159,6 +28,7 @@ $todoColor: rgb(8, 25, 57);
     margin-top: 40px;
     min-height: 80vh;
     width: 80vw;
+
     h1 {
       font-family: $goodGreekFont;
       margin: 10px;
@@ -168,13 +38,22 @@ $todoColor: rgb(8, 25, 57);
     .todoList {
       background-color: rgba(20, 63, 144, 0.1);
       border-radius: 20px;
+
       .arrows {
         color: $goodGreekBlue;
         margin-right: 3%;
+        :hover{
+          transform: scale(1.1) perspective(1px);
+        }
       }
+
       .delete {
         color: red;
+        :hover{
+          transform: scale(1.1) perspective(1px);
+        }
       }
+
       h1 {
         border-bottom: 1px solid rgb(20, 63, 144);
         color: $goodGreekBlue;
@@ -182,12 +61,14 @@ $todoColor: rgb(8, 25, 57);
         margin: 0 3% 2% 3%;
         padding: 4% 0 2% 0;
       }
+
       .todos {
         align-items: center;
         display: flex;
         font-size: 36px;
         justify-content: center;
         margin-bottom: 2%;
+
         .item {
           border-radius: 50%;
           font-family: $goodGreekFont;
@@ -202,11 +83,13 @@ $todoColor: rgb(8, 25, 57);
       flex: 1;
       margin-bottom: 5%;
       width: 80%;
+
       form {
         display: flex;
         justify-content: space-between;
         padding: 5% 0;
         width: 100%;
+
         input {
           background-color: $goodGreekGray;
           border: 1px solid #cccccc;
@@ -218,6 +101,7 @@ $todoColor: rgb(8, 25, 57);
           padding: 0 10px;
           width: 70%;
         }
+
         button {
           background-color: $goodGreekBlue;
           border-radius: 12px;
@@ -236,6 +120,7 @@ $todoColor: rgb(8, 25, 57);
 
     .form {
       text-align: center;
+
       h1 {
         border-bottom: 1px solid #143f90;
         font-size: 60px;
@@ -259,6 +144,7 @@ $todoColor: rgb(8, 25, 57);
         height: 120px;
         padding-bottom: 5%;
       }
+
       img {
         position: absolute;
         top: 45px;

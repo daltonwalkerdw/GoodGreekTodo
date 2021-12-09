@@ -1,38 +1,44 @@
-const Form = ({ newTodo, setNewTodo, todos, setTodos }) => {
+import { useState } from "react";
+
+const Form = ({ todos, setTodos}) => {
+  const [newTodo, setNewTodo] = useState("");
+
   const saveTodo = (newTodos) => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
-  const isTodoBlank = () => {
-    // Prevents a blank todo from being created.
-    if (newTodo === "") {
-      alert("Please Enter A Todo");
+  const addTodo = (e) => {
+    e.preventDefault();
+    if (isTodoBlank() === false) {
+      if (doesTodoAlreadyExist() === false) {
+        let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
+        setTodos(newTodos);
+        setNewTodo("");
+        saveTodo(newTodos);
+      }
     }
   };
 
-  const trimTodo = () => {
-    // Trims any blank space from the input string.
-    for (let i = 0; i < todos.length; i++) {
-      // Checks if new todo exist, if true prevents anything from happening
-      if (todos[i].todo === newTodo) {
+  const isTodoBlank = () => {
+    let isBlank = false;
+    if (newTodo === "") {
+      alert("Please Enter A Todo");
+      isBlank = true;
+    }
+    return isBlank;
+  };
+
+  const doesTodoAlreadyExist = () => {
+    let doesExist = false;
+    todos.forEach(todo => {
+      if (todo.todo === newTodo) {
         alert("todo already exist");
         setNewTodo("");
         console.log(todos);
-        return;
+        doesExist = true;
       }
-    }
-    if (newTodo.trim()) {
-      let newTodos = [...todos, { todo: newTodo.trim(), id: Date.now() }];
-      setTodos(newTodos);
-      setNewTodo("");
-      saveTodo(newTodos);
-    }
-  };
-
-  const addTodo = (e) => {
-    e.preventDefault();
-    isTodoBlank();
-    trimTodo();
+    })
+    return doesExist;
   };
 
   return (

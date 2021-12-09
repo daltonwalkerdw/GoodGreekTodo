@@ -7,59 +7,57 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Todos = ({ todos, setTodos }) => {
-  let up = -1;
-  let down = 1;
+  const up = -1;
+  const down = 1;
 
   const saveTodo = (newTodos) => {
     localStorage.setItem("todos", JSON.stringify(newTodos));
   };
 
-  const handleMove = (id, direction) => {
-    // Function that handles movement of elements
-    const position = todos.findIndex((i) => i.id === id);
+  const handleMoveTodo = (id, direction) => {
+    const todoPosition = todos.findIndex((todo) => todo.id === id);
 
-    if (position === 0 && direction === up) {
-      return // if top element, do nothing
+    if (
+      (todoPosition === 0 && direction === up) ||
+      (todoPosition === todos.length - 1 && direction === down)
+    ) {
+      return;
     }
-    if (position === todos.length - 1 && direction === down) {
-      return; // If bottom element, do nothing
-    }
-    const movedItem = todos[position];
-    const newTodos = todos.filter((todo) => todo.id !== id); // Removes clicked todo by index.
-    newTodos.splice(position + direction, 0, movedItem); // Adds removed todo back to the list based on index and direction
-    setTodos(newTodos);
 
-    saveTodo(newTodos);
+    const movedTodo = todos[todoPosition];
+    const sortedTodos = todos.filter((todo) => todo.id !== id); // Removes clicked todo by index.
+    sortedTodos.splice(todoPosition + direction, 0, movedTodo); // Adds removed todo back to the list based on index and direction
+    setTodos(sortedTodos);
+    saveTodo(sortedTodos);
   };
 
   const deleteTodo = (id) => {
-    let newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-
-    saveTodo(newTodos);
+    let filteredTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(filteredTodos);
+    saveTodo(filteredTodos);
   };
 
   return (
     <div className="todoList">
       <h1>TASK LIST</h1>
       <ul>
-        {todos.map((todo) => {
+        {todos.map(({ todo, id }) => {
           return (
-            <li className="todos" key={todo.id}>
-              <h2 className="item">{todo.todo}</h2>
+            <li className="todos" key={id}>
+              <h2 className="item">{todo}</h2>
               <FontAwesomeIcon
                 className="arrows"
-                onClick={() => handleMove(todo.id, down)}
+                onClick={() => handleMoveTodo(id, down)}
                 icon={faCircleArrowDown}
               />
               <FontAwesomeIcon
                 className="arrows"
-                onClick={() => handleMove(todo.id, up)}
+                onClick={() => handleMoveTodo(id, up)}
                 icon={faCircleArrowUp}
               />
               <FontAwesomeIcon
                 className={"delete"}
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() => deleteTodo(id)}
                 icon={faCircleXmark}
               />
             </li>

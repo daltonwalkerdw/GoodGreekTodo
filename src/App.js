@@ -6,7 +6,10 @@ import Todos from "./Components/Todos";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
+
+  if(!localStorage.getItem("todos")){
+    localStorage.setItem("todos", "[]")
+  }
 
   useEffect(() => {
     // Grabs storage and sets it to state.
@@ -21,12 +24,13 @@ function App() {
         <Header />
         <div className="formContainer">
           <Form
-            newTodo={newTodo}
-            setNewTodo={setNewTodo}
             todos={todos}
             setTodos={setTodos}
           />
-          <Todos todos={todos} setTodos={setTodos} />
+          <Todos
+            todos={todos}
+            setTodos={setTodos}
+          />
         </div>
       </div>
       <p className="copyRight">
